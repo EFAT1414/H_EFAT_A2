@@ -19,5 +19,6 @@ public Ride ( String rideName, int capacity, boolean isOpen, Employee operator){
        this.isOpen = isOpen;
        this.operator = operator;     
 }
+//getter & setter
 
 }
