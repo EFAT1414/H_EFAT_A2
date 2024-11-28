@@ -20,5 +20,16 @@ public Visitor (String name, int age, String contactNumber, String favouriteRide
 }
 
 //getter & setter
-
+public String getFavouriteRide(){
+    return  favouriteRide;
+}
+public void setFavouriteRide(String favouriteRide){
+    this.favouriteRide = favouriteRide;
+}
+public boolean isHasSeasonalPass(){
+    return hasSeasonalPass;
+}
+public void setHasSeasonalPass( boolean hasSeasonalPass){
+    this.hasSeasonalPass = hasSeasonalPass;
+}
 }
