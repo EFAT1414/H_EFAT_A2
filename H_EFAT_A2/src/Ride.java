@@ -20,5 +20,29 @@ public Ride ( String rideName, int capacity, boolean isOpen, Employee operator){
        this.operator = operator;     
 }
 //getter & setter
+public String getRideName(){
+    return rideName;
+}
+public void setRideName(String rideName){
+    this.rideName = rideName;
 
+}
+public int getCapacity(){
+    return capacity;
+}
+public void  setCapacity(int capacity ){
+    this.capacity = capacity;
+}
+public boolean getIsOpen(){
+    return isOpen;
+}
+public void setIsOpen(boolean isOpen){
+    this.isOpen = isOpen;
+}
+public Employee getOperator(){
+    return  operator;
+}
+public void setOperator (Employee operator){
+    this.operator = operator;
+}
 }
