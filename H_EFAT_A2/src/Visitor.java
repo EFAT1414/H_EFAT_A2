@@ -19,5 +19,6 @@ public Visitor (String name, int age, String contactNumber, String favouriteRide
     this.hasSeasonalPass = hasSeasonalPass;
 }
 
+//getter & setter
 
 }
