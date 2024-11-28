@@ -13,5 +13,11 @@ public class Ride {
         this.operator = null;
     }
 //parametarized constructor
+public Ride ( String rideName, int capacity, boolean isOpen, Employee operator){
+       this.rideName = rideName;
+       this.capacity = capacity;
+       this.isOpen = isOpen;
+       this.operator = operator;     
+}
 
 }
