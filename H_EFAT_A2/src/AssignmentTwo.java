@@ -30,6 +30,11 @@ public class AssignmentTwo {
         System.out.println("Name :" + visitor1.getName());
         System.out.println("Favourite Ride :"+ visitor1.getFavouriteRide());
         System.out.println("Has Pass :" + visitor1.isHasSeasonalPass());
+
+        System.out.println("Visitor 2 :");
+        System.out.println("Name :" + visitor2.getName());
+        System.out.println("Favourite Ride :"+ visitor2.getFavouriteRide());
+        System.out.println("Has Pass :" + visitor2.isHasSeasonalPass());
     }
     
 
