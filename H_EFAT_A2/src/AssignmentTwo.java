@@ -24,5 +24,14 @@ public class AssignmentTwo {
         System.out.println("Capacity :" + ride2.getCapacity());
         System.out.println("Is Open :"+ ride2.getIsOpen());
         System.out.println("Operator :" + ride2.getOperator() != null ? ride2.getOperator().getName(): "None");
+
+        //display visitor details
+        System.out.println("Visitor 1 :");
+        System.out.println("Name :" + visitor1.getName());
+        System.out.println("Favourite Ride :"+ visitor1.getFavouriteRide());
+        System.out.println("Has Pass :" + visitor1.isHasSeasonalPass());
     }
+    
+
+
 }    
