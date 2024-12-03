@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -7,8 +8,8 @@ public class Ride implements RideInterface {
     private int capacity;
     private boolean isOpen;
     private Employee operator;
-    private Queue<Visitor> queue;          // Queue for visitors
-    private LinkedList<Visitor> rideHistory; // List for ride history
+    private Queue<Visitor> queue; // Queue for visitors
+    private LinkedList<Visitor> rideHistory; // LinkedList for ride history
 
     // Default constructor
     public Ride() {
@@ -63,7 +64,7 @@ public class Ride implements RideInterface {
         this.operator = operator;
     }
 
-    // Interface Methods
+    // Interface Methods (Updated for Part 4A)
     @Override
     public void addVisitorToQueue(Visitor visitor) {
         queue.add(visitor);
@@ -110,7 +111,9 @@ public class Ride implements RideInterface {
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        return rideHistory.contains(visitor);
+        boolean found = rideHistory.contains(visitor);
+        System.out.println(found ? visitor.getName() + " is in the ride history." : visitor.getName() + " is not in the ride history.");
+        return found;
     }
 
     @Override
@@ -121,8 +124,10 @@ public class Ride implements RideInterface {
     @Override
     public void printRideHistory() {
         System.out.println("Ride History:");
-        for (Visitor visitor : rideHistory) {
-            System.out.println("- Name: " + visitor.getName());
+        Iterator<Visitor> iterator = rideHistory.iterator();
+        while (iterator.hasNext()) {
+            Visitor visitor = iterator.next();
+            System.out.println("- Name: " + visitor.getName() + ", Age: " + visitor.getAge() + ", Contact: " + visitor.getContactNumber());
         }
     }
 }
