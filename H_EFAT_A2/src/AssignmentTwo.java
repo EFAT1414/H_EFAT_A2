@@ -18,5 +18,11 @@ public class AssignmentTwo {
         System.out.println("Capacity :" + ride1.getCapacity());
         System.out.println("Is Open :"+ ride1.getIsOpen());
         System.out.println("Operator :" + ride1.getOperator() != null ? ride1.getOperator().getName(): "None");
+
+        System.out.println("Ride 2 details :");
+        System.out.println("Name :"+ ride2.getRideName());
+        System.out.println("Capacity :" + ride2.getCapacity());
+        System.out.println("Is Open :"+ ride2.getIsOpen());
+        System.out.println("Operator :" + ride2.getOperator() != null ? ride2.getOperator().getName(): "None");
     }
 }    
