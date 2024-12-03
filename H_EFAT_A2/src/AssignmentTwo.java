@@ -10,5 +10,13 @@ public class AssignmentTwo {
         //create Ride
         Ride ride1 = new Ride("Jet ski",2,true,operator);
         Ride ride2 = new Ride("Roller Coaster",20,true,null);
+
+        //display ride details
+
+        System.out.println("Ride 1 details :");
+        System.out.println("Name :"+ ride1.getRideName());
+        System.out.println("Capacity :" + ride1.getCapacity());
+        System.out.println("Is Open :"+ ride1.getIsOpen());
+        System.out.println("Operator :" + ride1.getOperator() != null ? ride1.getOperator().getName(): "None");
     }
 }    
