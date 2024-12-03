@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Ride implements RideInterface {
     // Instance variables
@@ -7,8 +7,8 @@ public class Ride implements RideInterface {
     private int capacity;
     private boolean isOpen;
     private Employee operator;
-    private List<Visitor> queue;          // List to hold visitors in the queue
-    private List<Visitor> rideHistory;    // List to track ride history
+    private Queue<Visitor> queue;          // Queue for visitors
+    private LinkedList<Visitor> rideHistory; // List for ride history
 
     // Default constructor
     public Ride() {
@@ -16,8 +16,8 @@ public class Ride implements RideInterface {
         this.capacity = 0;
         this.isOpen = false;
         this.operator = null;
-        this.queue = new ArrayList<>();
-        this.rideHistory = new ArrayList<>();
+        this.queue = new LinkedList<>();
+        this.rideHistory = new LinkedList<>();
     }
 
     // Parameterized constructor
@@ -26,8 +26,8 @@ public class Ride implements RideInterface {
         this.capacity = capacity;
         this.isOpen = isOpen;
         this.operator = operator;
-        this.queue = new ArrayList<>();
-        this.rideHistory = new ArrayList<>();
+        this.queue = new LinkedList<>();
+        this.rideHistory = new LinkedList<>();
     }
 
     // Getters and setters
@@ -67,13 +67,13 @@ public class Ride implements RideInterface {
     @Override
     public void addVisitorToQueue(Visitor visitor) {
         queue.add(visitor);
-        System.out.println(visitor.getName() + " added to the queue.");
+        System.out.println(visitor.getName() + " has been added to the queue.");
     }
 
     @Override
     public void removeVisitorFromQueue(Visitor visitor) {
         if (queue.remove(visitor)) {
-            System.out.println(visitor.getName() + " removed from the queue.");
+            System.out.println(visitor.getName() + " has been removed from the queue.");
         } else {
             System.out.println(visitor.getName() + " is not in the queue.");
         }
@@ -81,22 +81,22 @@ public class Ride implements RideInterface {
 
     @Override
     public void printQueue() {
-        System.out.println("Visitors in the queue:");
+        System.out.println("Visitors in the queue (in order of arrival):");
         for (Visitor visitor : queue) {
-            System.out.println("- " + visitor.getName());
+            System.out.println("- Name: " + visitor.getName() + ", Age: " + visitor.getAge() + ", Contact: " + visitor.getContactNumber());
         }
     }
 
     @Override
     public void runOneCycle() {
         if (!isOpen) {
-            System.out.println("The ride is closed.");
+            System.out.println("The ride is currently closed.");
             return;
         }
         System.out.println("Running one cycle of the ride...");
         int processedVisitors = Math.min(queue.size(), capacity);
         for (int i = 0; i < processedVisitors; i++) {
-            Visitor visitor = queue.remove(0);
+            Visitor visitor = queue.poll(); // Removes the visitor from the queue
             System.out.println(visitor.getName() + " is riding!");
             addVisitorToHistory(visitor);
         }
@@ -105,7 +105,7 @@ public class Ride implements RideInterface {
     @Override
     public void addVisitorToHistory(Visitor visitor) {
         rideHistory.add(visitor);
-        System.out.println(visitor.getName() + " added to ride history.");
+        System.out.println(visitor.getName() + " has been added to the ride history.");
     }
 
     @Override
@@ -122,7 +122,7 @@ public class Ride implements RideInterface {
     public void printRideHistory() {
         System.out.println("Ride History:");
         for (Visitor visitor : rideHistory) {
-            System.out.println("- " + visitor.getName());
+            System.out.println("- Name: " + visitor.getName());
         }
     }
 }
