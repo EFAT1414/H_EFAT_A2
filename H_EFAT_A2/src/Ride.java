@@ -126,11 +126,13 @@ public class Ride implements RideInterface {
     public void printRideHistory() {
         System.out.println("Ride History:");
         Iterator<Visitor> iterator = rideHistory.iterator();
-        Collections.sort(rideHistory, new VisitorComparator());
-        System.out.println("Ride history has been sorted.");
+        
         while (iterator.hasNext()) {
             Visitor visitor = iterator.next();
+            
             System.out.println("- Name: " + visitor.getName() + ", Age: " + visitor.getAge() + ", Contact: " + visitor.getContactNumber());
+            Collections.sort(rideHistory, new VisitorComparator());
+        System.out.println("Ride history has been sorted.");
         }
     }
 }
