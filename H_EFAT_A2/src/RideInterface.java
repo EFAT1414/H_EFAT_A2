@@ -1,4 +1,3 @@
-import java.util.List;
 
 public interface RideInterface {
     void addVisitorToQueue(Visitor visitor);

@@ -1,42 +1,28 @@
 public class AssignmentTwo {
     public static void main(String[] args) {
-       //create an Employee
-        Employee operator = new Employee("Rotna", 32, "0424242498", "Student",1500);
+        // Create an operator and visitors
+        Employee operator = new Employee("Alice", 30, "123-456-7890", "Ride Operator", 2500);
+        Visitor visitor1 = new Visitor("Bob", 25, "234-567-8901", "Roller Coaster", true);
+        Visitor visitor2 = new Visitor("Charlie", 20, "345-678-9012", "Ferris Wheel", false);
 
-        //create visitor
-        Visitor visitor1 = new Visitor("Manal",22,"044256987","Jet Ski",true);
-        Visitor visitor2 = new Visitor("Tamzid",23,"0421214321","Roller Coaster",true);
+        // Create a ride
+        Ride ride = new Ride("Roller Coaster", 5, true, operator);
 
-        //create Ride
-        Ride ride1 = new Ride("Jet ski",2,true,operator);
-        Ride ride2 = new Ride("Roller Coaster",20,true,null);
+        // Add visitors to the queue
+        ride.addVisitorToQueue(visitor1);
+        ride.addVisitorToQueue(visitor2);
 
-        //display ride details
+        // Print the queue
+        ride.printQueue();
 
-        System.out.println("Ride 1 details :");
-        System.out.println("Name :"+ ride1.getRideName());
-        System.out.println("Capacity :" + ride1.getCapacity());
-        System.out.println("Is Open :"+ ride1.getIsOpen());
-        System.out.println("Operator :" + ride1.getOperator() != null ? ride1.getOperator().getName(): "None");
+        // Run one cycle
+        ride.runOneCycle();
 
-        System.out.println("Ride 2 details :");
-        System.out.println("Name :"+ ride2.getRideName());
-        System.out.println("Capacity :" + ride2.getCapacity());
-        System.out.println("Is Open :"+ ride2.getIsOpen());
-        System.out.println("Operator :" + ride2.getOperator() != null ? ride2.getOperator().getName(): "None");
+        // Print ride history
+        ride.printRideHistory();
 
-        //display visitor details
-        System.out.println("Visitor 1 :");
-        System.out.println("Name :" + visitor1.getName());
-        System.out.println("Favourite Ride :"+ visitor1.getFavouriteRide());
-        System.out.println("Has Pass :" + visitor1.isHasSeasonalPass());
-
-        System.out.println("Visitor 2 :");
-        System.out.println("Name :" + visitor2.getName());
-        System.out.println("Favourite Ride :"+ visitor2.getFavouriteRide());
-        System.out.println("Has Pass :" + visitor2.isHasSeasonalPass());
+        // Check visitor from history
+        boolean isInHistory = ride.checkVisitorFromHistory(visitor1);
+        System.out.println("Is " + visitor1.getName() + " in history? " + isInHistory);
     }
-    
-
-
-}    
+}
