@@ -11,8 +11,8 @@ public class AssignmentTwo {
         assignment.partSix();
         assignment.partSeven();
     }
-    
 
+   
     public void partThree() {
         // Create a Ride object
         Employee operator = new Employee("Alice", 30, "123-456-7890", "Ride Operator", 3000);
@@ -37,9 +37,8 @@ public class AssignmentTwo {
 
         // Print the current Queue
         ride.printQueue();
-        System.out.println("Executing Part Three...");
     }
-
+    
     public void partFourA() {
         // Create a Ride object
         Employee operator = new Employee("Alice", 30, "123-456-7890", "Ride Operator", 3000);
@@ -68,12 +67,8 @@ public class AssignmentTwo {
 
         // Print the Ride History
         ride.printRideHistory();
-        System.out.println("Executing Part Four A...");
-    }
-
+    } 
     public void partFourB() {
-        // Placeholder for Part Four B implementation
-        
         // Create a Ride object
         Employee operator = new Employee("Alice", 30, "123-456-7890", "Ride Operator", 3000);
         Ride ride = new Ride("Ferris Wheel", 5, true, operator);
@@ -102,9 +97,7 @@ public class AssignmentTwo {
         // Print sorted Ride History
         System.out.println("\nSorted Ride History:");
         ride.printRideHistory();
-        System.out.println("Executing Part Four B...");
     }
-
     public void partFive() {
         // Create a Ride object
         Employee operator = new Employee("Alice", 30, "123-456-7890", "Ride Operator", 3000);
@@ -148,10 +141,7 @@ public class AssignmentTwo {
         // Print all Visitors in the Ride History
         System.out.println("\nVisitors in the ride history:");
         ride.printRideHistory();
-        // Placeholder for Part Five implementation
-        System.out.println("Executing Part Five...");
     }
-
     public void partSix() {
         // Create a Ride object
         Employee operator = new Employee("Bob", 35, "123-456-7890", "Operator", 3000);
@@ -173,9 +163,6 @@ public class AssignmentTwo {
         // Export ride history to a file
         String fileName = "ride_history.txt";
         ride.exportRideHistory(fileName);
-  
-        // Placeholder for Part Six implementation
-        System.out.println("Executing Part Six...");
     }
 
     public void partSeven() {
@@ -192,7 +179,5 @@ public class AssignmentTwo {
 
         // Print all Visitors in the LinkedList
         ride.printRideHistory();
-        // Placeholder for Part Seven implementation
-        System.out.println("Executing Part Seven...");
     }
 }

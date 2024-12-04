@@ -2,24 +2,18 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Queue;
 
-public class Ride implements RideInterface {
+public class  Ride implements RideInterface {
 
-    private String name;
     private int maxRider;
     private int numOfCycles;
-    private boolean isOpen;
     private Employee operator;
-    private Queue<Visitor> waitingQueue;
-    private LinkedList<Visitor> rideHistory;
+    private final LinkedList<Visitor> rideHistory;
 
     public Ride(String name, int maxRider, boolean isOpen, Employee operator) {
-        this.name = name;
         this.maxRider = maxRider;
-        this.isOpen = isOpen;
         this.operator = operator;
-        this.waitingQueue = new LinkedList<>();
+        new LinkedList<>();
         this.rideHistory = new LinkedList<>();
         this.numOfCycles = 0;
     }
@@ -108,10 +102,7 @@ public class Ride implements RideInterface {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    void printRideHistory() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    
 
 
     }
