@@ -1,138 +1,121 @@
-import java.util.Collections;
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Ride implements RideInterface {
-    // Instance variables
-    private String rideName;
-    private int capacity;
+
+    private String name;
+    private int maxRider;
+    private int numOfCycles;
     private boolean isOpen;
     private Employee operator;
-    private Queue<Visitor> queue; // Queue for visitors
-    private LinkedList<Visitor> rideHistory; // LinkedList for ride history
+    private Queue<Visitor> waitingQueue;
+    private LinkedList<Visitor> rideHistory;
 
-    // Default constructor
-    public Ride() {
-        this.rideName = "Unknown";
-        this.capacity = 0;
-        this.isOpen = false;
-        this.operator = null;
-        this.queue = new LinkedList<>();
-        this.rideHistory = new LinkedList<>();
-    }
-
-    // Parameterized constructor
-    public Ride(String rideName, int capacity, boolean isOpen, Employee operator) {
-        this.rideName = rideName;
-        this.capacity = capacity;
+    public Ride(String name, int maxRider, boolean isOpen, Employee operator) {
+        this.name = name;
+        this.maxRider = maxRider;
         this.isOpen = isOpen;
         this.operator = operator;
-        this.queue = new LinkedList<>();
+        this.waitingQueue = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.numOfCycles = 0;
     }
 
-    // Getters and setters
-    public String getRideName() {
-        return rideName;
+    // Other methods from previous parts...
+    // Setters and Getters for maxRider and numOfCycles
+    public int getMaxRider() {
+        return maxRider;
     }
 
-    public void setRideName(String rideName) {
-        this.rideName = rideName;
+    public void setMaxRider(int maxRider) {
+        this.maxRider = maxRider;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public int getNumOfCycles() {
+        return numOfCycles;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setNumOfCycles(int numOfCycles) {
+        this.numOfCycles = numOfCycles;
     }
+    
 
-    public boolean isOpen() {
-        return isOpen;
-    }
+    // Method to import ride history from a file
+    public void importRideHistory(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Assuming the file format is consistent with Visitor.toString output
+                String[] parts = line.split(", ");
+                String name = parts[0].split(": ")[1];
+                int age = Integer.parseInt(parts[1].split(": ")[1]);
+                String contact = parts[2].split(": ")[1];
+                String ridePreference = parts[3].split(": ")[1];
+                boolean isVip = Boolean.parseBoolean(parts[4].split(": ")[1]);
 
-    public void setOpen(boolean open) {
-        isOpen = open;
-    }
-
-    public Employee getOperator() {
-        return operator;
-    }
-
-    public void setOperator(Employee operator) {
-        this.operator = operator;
-    }
-
-    // Interface Methods (Updated for Part 4A)
-    @Override
-    public void addVisitorToQueue(Visitor visitor) {
-        queue.add(visitor);
-        System.out.println(visitor.getName() + " has been added to the queue.");
-    }
-
-    @Override
-    public void removeVisitorFromQueue(Visitor visitor) {
-        if (queue.remove(visitor)) {
-            System.out.println(visitor.getName() + " has been removed from the queue.");
-        } else {
-            System.out.println(visitor.getName() + " is not in the queue.");
+                Visitor visitor = new Visitor(name, age, contact, ridePreference, isVip);
+                rideHistory.add(visitor);
+            }
+            System.out.println("Ride history successfully imported from " + fileName);
+        } catch (IOException e) {
+            System.out.println("Error reading from file: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error processing file content: " + e.getMessage());
         }
-    }
-
-    @Override
-    public void printQueue() {
-        System.out.println("Visitors in the queue (in order of arrival):");
-        for (Visitor visitor : queue) {
-            System.out.println("- Name: " + visitor.getName() + ", Age: " + visitor.getAge() + ", Contact: " + visitor.getContactNumber());
-        }
-    }
-
-    @Override
-    public void runOneCycle() {
-        if (!isOpen) {
-            System.out.println("The ride is currently closed.");
-            return;
-        }
-        System.out.println("Running one cycle of the ride...");
-        int processedVisitors = Math.min(queue.size(), capacity);
-        for (int i = 0; i < processedVisitors; i++) {
-            Visitor visitor = queue.poll(); // Removes the visitor from the queue
-            System.out.println(visitor.getName() + " is riding!");
-            addVisitorToHistory(visitor);
-        }
-    }
-
-    @Override
-    public void addVisitorToHistory(Visitor visitor) {
-        rideHistory.add(visitor);
-        System.out.println(visitor.getName() + " has been added to the ride history.");
-    }
-
-    @Override
-    public boolean checkVisitorFromHistory(Visitor visitor) {
-        boolean found = rideHistory.contains(visitor);
-        System.out.println(found ? visitor.getName() + " is in the ride history." : visitor.getName() + " is not in the ride history.");
-        return found;
     }
 
     @Override
     public int numberOfVisitors() {
-        return rideHistory.size();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
+    @SuppressWarnings("override")
     public void printRideHistory() {
-        System.out.println("Ride History:");
-        Iterator<Visitor> iterator = rideHistory.iterator();
-        
-        while (iterator.hasNext()) {
-            Visitor visitor = iterator.next();
-            
-            System.out.println("- Name: " + visitor.getName() + ", Age: " + visitor.getAge() + ", Contact: " + visitor.getContactNumber());
-            Collections.sort(rideHistory, new VisitorComparator());
-        System.out.println("Ride history has been sorted.");
+            throw new UnsupportedOperationException("Not supported yet.");
         }
+
+    @Override
+    public void addVisitorToQueue(Visitor visitor) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
-}
+
+    @Override
+    public void removeVisitorFromQueue(Visitor visitor) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void printQueue() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void runOneCycle() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addVisitorToHistory(Visitor visitor) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean checkVisitorFromHistory(Visitor visitor) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    void printRideHistory() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+
+
+    }
+
+
+    
+
