@@ -7,13 +7,12 @@ public class  Ride implements RideInterface {
 
     private int maxRider;
     private int numOfCycles;
-    private Employee operator;
     private final LinkedList<Visitor> rideHistory;
 
+    @SuppressWarnings("rawtypes")
     public Ride(String name, int maxRider, boolean isOpen, Employee operator) {
         this.maxRider = maxRider;
-        this.operator = operator;
-        new LinkedList<>();
+        new LinkedList();
         this.rideHistory = new LinkedList<>();
         this.numOfCycles = 0;
     }
@@ -102,9 +101,6 @@ public class  Ride implements RideInterface {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    void sortRideHistory() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
     
 

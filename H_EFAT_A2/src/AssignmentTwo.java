@@ -92,7 +92,7 @@ public class AssignmentTwo {
         ride.printRideHistory();
 
         // Sort the Ride History
-        ride.sortRideHistory();
+        ride.printRideHistory();
 
         // Print sorted Ride History
         System.out.println("\nSorted Ride History:");
@@ -162,7 +162,7 @@ public class AssignmentTwo {
 
         // Export ride history to a file
         String fileName = "ride_history.txt";
-        ride.exportRideHistory(fileName);
+        ride.importRideHistory(fileName);
     }
 
     public void partSeven() {
