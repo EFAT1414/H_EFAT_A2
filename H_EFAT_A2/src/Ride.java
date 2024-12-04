@@ -102,6 +102,10 @@ public class  Ride implements RideInterface {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    void sortRideHistory() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     
 
 
