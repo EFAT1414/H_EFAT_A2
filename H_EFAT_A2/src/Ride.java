@@ -9,10 +9,9 @@ public class  Ride implements RideInterface {
     private int numOfCycles;
     private final LinkedList<Visitor> rideHistory;
 
-    @SuppressWarnings("rawtypes")
     public Ride(String name, int maxRider, boolean isOpen, Employee operator) {
         this.maxRider = maxRider;
-        new LinkedList();
+        new LinkedList<>();
         this.rideHistory = new LinkedList<>();
         this.numOfCycles = 0;
     }
